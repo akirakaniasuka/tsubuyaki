@@ -34,6 +34,8 @@
         </li>
 
 
+
+
     </ul>
 
 
@@ -45,21 +47,27 @@
 
         <label for="name">お名前：</label>
 
-
         <input type="text" th:field="*{name}" size="8" value="名無しさん" />
 
-
         <label for="comment">つぶやき：</label>
-
-
         <input type="text" required th:field="*{comment}" />
-
-
         <input type="submit" value="つぶやく" />
 
 
     </form>
 
+    <h2>検索する</h2>
+    <form th:action="@{/search}" method="get">
+        <label for="word">検索ワード：</label>
+        <input type="text" name="word" size="8" value="りんご" />
+        <input type="submit" value="検索する" />
+    </form>
+
+                <li th:each="t: ${tsubuyakiSearchList}">
+            [[${t.comment}]] -- [[${t.name}]] on [[${t.createdAt}]]
+
+
+        </li>
 
     <h2>タイトルへ</h2>
 
