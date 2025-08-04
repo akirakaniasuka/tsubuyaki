@@ -52,4 +52,14 @@ public class TsubuyakiService {
 
     }
 
+    public List<Tsubuyaki> getSearchTsubuyaki(String word) {
+
+        Iterable<Tsubuyaki> found = repo.findByCommentContaining(word);
+        ArrayList<Tsubuyaki> list = new ArrayList<>();
+
+        found.forEach(list::add);
+
+        return list;
+
+    }
 }
